@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('notes');
             $table->string('photo');
             $table->foreignId('fundraising_id')->constrained()->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
