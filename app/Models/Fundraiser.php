@@ -10,8 +10,10 @@ class Fundraiser extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'user_id',
-        'is_active',
-    ];
+    protected $fillable = ['user_id', 'is_active'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
