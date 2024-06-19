@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fundraisers', function (Blueprint $table) {
+        Schema::create('donaturs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('phone_number');
+            $table->unsignedBigInteger('fundraising_id');
+            $table->unsignedBigInteger('total_amount');
+            $table->string('notes');
+            $table->string('proof');
+            $table->boolean('is_paid');
             $table->timestamps();
         });
     }
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fundraisers');
+        Schema::dropIfExists('donaturs');
     }
 };
