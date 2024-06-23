@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fundraiser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FundraiserController extends Controller
 {
@@ -13,6 +14,18 @@ class FundraiserController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
+
+        $fundraisers = Fundraiser::orderByDesc('id')->get();
+
+        $fundraiserStatus = null;
+
+        if ($user->fundraisers()->exists()) {
+            $isFundraiserActive = $user->fundraisers->is_active;
+            $fundraiserStatus = $isFundraiserActive ? 'Active' : 'Pending';
+        }
+
+        return view('admin.fundraisers.index', compact('fundraiserStatus'));
     }
 
     /**

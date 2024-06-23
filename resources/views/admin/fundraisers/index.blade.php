@@ -8,6 +8,7 @@
     </x-slot>
     <div>
         
+    @role('owner')
     </div>
     <div class="list-fundraisers py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -51,6 +52,8 @@
             </div>
         </div>
     </div>
+    
+    @else
     <div class="list-fundraisers py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10 flex flex-col ">
@@ -67,6 +70,16 @@
                         <h3 class="text-indigo-950 text-xl font-bold">Tebarkan Kebaikan</h3>
                         <p class="text-slate-500 text-base">Jadilah bagian dari kami untuk membantu <br>mereka yang membutuhkan dana tambahan</p>
                     </div>
+
+                    @if ($fundraiserStatus == 'Pending')
+                    <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-orange-500 text-white">
+                        PENDING
+                    </span> 
+                    @elseif ($fundraiserStatus == 'Active')
+                     <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                        Create a Fundraising
+                     </a>
+                    @else
                     <form action="#" method="POST">
                         @csrf
                         @method('PUT')
@@ -74,11 +87,11 @@
                             Become Fundraiser
                         </button>
                     </form>
-                    <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-orange-500 text-white">
-                        PENDING
-                    </span> 
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
+    @endrole
 </x-app-layout>
