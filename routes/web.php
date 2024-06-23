@@ -9,7 +9,6 @@ use App\Http\Controllers\FundraisingPhaseController;
 use App\Http\Controllers\FundraisingWithdrawalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
