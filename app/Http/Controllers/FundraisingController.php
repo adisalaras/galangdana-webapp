@@ -23,6 +23,15 @@ class FundraisingController extends Controller
         //
     }
 
+    public function activate_fundraising(Fundraising $fundraising)
+    {
+        $fundraising->update([
+            'status' => 'active'
+        ]);
+
+        return redirect()->route('admin.fundraisings.index');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
