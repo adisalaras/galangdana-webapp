@@ -17,7 +17,7 @@
                     @endforeach
                 @endif
                 
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="{{route('admin.categories.update', $category)}}" enctype="multipart/form-data">
                     @csrf
 
                     <div>

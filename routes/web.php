@@ -36,11 +36,11 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('fundraising_withdrawals', FundraisingWithdrawalController::class)->middleware('role:owner|fundraiser');
 
-        Route::post('/fundraising_withdrawals/request/{fundraising:id}', [FundraisingWithdrawalController::class, 'store'])->middleware('role:fundraiser')->name('fundraising_withdrawals.store');
+        // Route::post('/fundraising_withdrawals/request/{fundraising:id}', [FundraisingWithdrawalController::class, 'store'])->middleware('role:fundraiser')->name('fundraising_withdrawals.store');
 
         Route::resource('fundraising_phases', FundraisingPhaseController::class)->middleware('role:owner|fundraiser');
 
-        Route::post('/fundraising_phases/update/{fundraising}', [FundraisingPhaseController::class, 'store'])->middleware('role:fundraiser')->name('fundraising_phases.store');
+        // Route::post('/fundraising_phases/update/{fundraising}', [FundraisingPhaseController::class, 'store'])->middleware('role:fundraiser')->name('fundraising_phases.store');
 
         Route::resource('fundraisings', FundraisingController::class)->middleware('role:owner|fundraiser');
 
