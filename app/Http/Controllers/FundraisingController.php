@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFundraisingRequest;
+use App\Models\Category;
+use App\Models\Fundraiser;
 use App\Models\Fundraising;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FundraisingController extends Controller
 {
@@ -35,6 +40,8 @@ class FundraisingController extends Controller
     public function create()
     {
         //
+        $categories = Category::all();
+        return view('admin.fundraisings.create', compact('categories'));
     }
 
     public function activate_fundraising(Fundraising $fundraising)
@@ -49,9 +56,28 @@ class FundraisingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFundraisingRequest $request)
     {
         //
+        $fundraiser = Fundraiser::where('user_id', Auth::user()->id)->first();
+
+        DB::transaction(function () use ($request, $fundraiser) {
+            $validated = $request->validated();
+            
+            if ($request->hasFile('thumbnail')) {
+                $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
+                $validated['thumbnail'] = $thumbnailPath;
+            } 
+            $validated['slug'] = Str::slug($validated['name']);
+
+            $validated['fundraiser_id'] = $fundraiser->id;
+            $validated['is_active'] = false;
+            $validated['has_finished'] = false;
+
+            $fundraising = Fundraising::create($validated);
+        });
+
+        return redirect()->route('admin.fundraisings.index')->with('success', 'Fundraising created successfully');
     }
 
     /**
