@@ -39,7 +39,7 @@ class Fundraising extends Model
 
     public function totalReachedAmount()
     {
-        return $this->donaturs()->sum('amount');
+        return $this->donaturs()->sum('total_amount');
     }
 
     public function withdrawals()

@@ -26,7 +26,8 @@
                         </div>
                         <div class="hidden md:flex flex-col">
                             <p class="text-slate-500 text-sm">Target Amount</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">{{$fundraising->target_amount}}</h3>
+                            <h3 class="text-indigo-950 text-xl font-bold">Rp {{
+                           number_format($fundraising->target_amount, 0, ',', '.')}}    </h3>
                         </div>
                         <div class="hidden md:flex flex-col">
                             <p class="text-slate-500 text-sm">Donaturs</p>
@@ -37,7 +38,7 @@
                             <h3 class="text-indigo-950 text-xl font-bold">{{$fundraising->fundraiser->user->name}}</h3>
                         </div>
                         <div class="hidden md:flex flex-row items-center gap-x-3">
-                            <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                            <a href="{{route('admin.fundraisings.show', $fundraising)}}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                                 View Details
                             </a>
                         </div>
