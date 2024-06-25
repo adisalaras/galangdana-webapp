@@ -39,11 +39,12 @@
                 <hr class="my-5">
                 <div class="flex flex-row justify-between items-center">
                     <div>
-                        <h3 class="text-indigo-950 text-xl font-bold">Rp 120902</h3>
+                        <h3 class="text-indigo-950 text-xl font-bold">Rp {{
+                           number_format($totalDonations, 0, ',', '.')}}</h3>
                         <p class="text-slate-500 text-sm">Funded</p>
                     </div>
                     <div class="w-[400px] rounded-full h-2.5 bg-slate-300">
-                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 12%"></div>
+                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: {{$percentage}}%"></div>
                     </div>
                     <div>
                         <h3 class="text-indigo-950 text-xl font-bold">Rp {{
@@ -95,19 +96,22 @@
                     </div>
                 </div>
 
-                @for($i = 0; $i < 5; $i++)
+                @forelse($fundraising->donaturs as $donatur)
                 <div class="item-card flex flex-row gap-y-10 justify-between items-center">
                     <div class="flex flex-row items-center gap-x-3">
                         <div class="flex flex-col">
-                            <h3 class="text-indigo-950 text-xl font-bold">Rp 1029123</h3>
-                            <p class="text-slate-500 text-sm">Spora Adrian</p>
+                            <h3 class="text-indigo-950 text-xl font-bold">Rp Rp {{
+                           number_format($donatur->total_amount, 0, ',', '.')}}</h3>
+                            <p class="text-slate-500 text-sm">{{$donatur->name}}</p>
                         </div>
                     </div>
 
-                    <p class="text-slate-500 text-sm">Semoga lekas sembuh dan diberkan ketabahan besar menghadapi seluuruh ujian dari Allah</p>
+                    <p class="text-slate-500 text-sm">{{$donatur->notes}}</p>
                     
                 </div>
-                @endfor
+                @empty
+                <p>Belum ada yang memberikan donasi</p>
+                @endforelse
                 
             </div>
         </div>

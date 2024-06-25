@@ -47,7 +47,7 @@ class FundraisingController extends Controller
     public function activate_fundraising(Fundraising $fundraising)
     {
         $fundraising->update([
-            'status' => 'active'
+            'status' => 'active',
         ]);
 
         return redirect()->route('admin.fundraisings.index');
@@ -63,11 +63,11 @@ class FundraisingController extends Controller
 
         DB::transaction(function () use ($request, $fundraiser) {
             $validated = $request->validated();
-            
+
             if ($request->hasFile('thumbnail')) {
                 $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
                 $validated['thumbnail'] = $thumbnailPath;
-            } 
+            }
             $validated['slug'] = Str::slug($validated['name']);
 
             $validated['fundraiser_id'] = $fundraiser->id;
@@ -89,7 +89,12 @@ class FundraisingController extends Controller
         $totalDonations = $fundraising->totalReachedAmount();
         $goalReached = $totalDonations >= $fundraising->target_amount;
 
-        return view('admin.fundraisings.show', compact('fundraising', 'goalReached'));
+        $percentage = ($totalDonations / $fundraising->target_amount) * 100;
+        if ($percentage > 100) {
+            $percentage = 100;
+        }
+
+        return view('admin.fundraisings.show', compact('fundraising', 'goalReached', 'percentage', 'totalDonations'));
     }
 
     /**

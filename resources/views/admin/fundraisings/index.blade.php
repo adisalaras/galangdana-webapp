@@ -27,7 +27,7 @@
                         <div class="hidden md:flex flex-col">
                             <p class="text-slate-500 text-sm">Target Amount</p>
                             <h3 class="text-indigo-950 text-xl font-bold">Rp {{
-                           number_format($fundraising->target_amount, 0, ',', '.')}}    </h3>
+                           number_format($fundraising->target_amount, 0, ',', '.')}}</h3>
                         </div>
                         <div class="hidden md:flex flex-col">
                             <p class="text-slate-500 text-sm">Donaturs</p>
