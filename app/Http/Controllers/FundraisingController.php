@@ -47,10 +47,12 @@ class FundraisingController extends Controller
 
     public function activate_fundraising(Fundraising $fundraising)
     {
-        $fundraising->update([
-            'status' => 'active',
-        ]);
-
+        DB::transaction(function() use ($fundraising) {
+            $fundraising->update([
+                'is_active' => true,
+            ]);
+        });
+        
         return redirect()->route('admin.fundraisings.index');
     }
 
