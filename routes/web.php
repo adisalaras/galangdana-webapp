@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/my-withdrawals', [DashboardController::class, 'my_withdrawals'])->name('my-withdrawals');
 
-        Route::get('/my-withdrawals/details/{fundraisingWithdrawal}', [DashboardController::class, 'my_withdrawals'])->name('my-withdrawals.details');
+        Route::get('/my-withdrawals/details/{fundraisingWithdrawal}', [DashboardController::class, 'my_withdrawal_details'])->name('my-withdrawals.details');
     });
 });
 
