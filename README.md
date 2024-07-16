@@ -1,6 +1,16 @@
 # Sistem Informasi Galangdana berbasis Web menggunakan Framework Laravel 11
 
-Sistem Informasi Galang Dana adalah platform penggalangan dana online berbasis web yang dibangun menggunakan Laravel framework. Proyek ini bertujuan untuk memfasilitasi proses penggalangan dana secara efisien dan transparan.
+Sebuah platform penggalangan dana online yang menghubungkan berbagai jenis penggalang dana (individu, organisasi non-profit, lembaga pendidikan) dengan para donatur potensial. Platform ini dirancang untuk memfasilitasi berbagai jenis kampanye penggalangan dana, mulai dari bantuan bencana alam, pendanaan pendidikan, hingga proyek-proyek sosial dan kemanusiaan.
+<br> <br>
+Sistem ini memungkinkan penggalang dana untuk membuat dan mengelola kampanye mereka, sementara donatur dapat dengan mudah menemukan dan mendukung kampanye yang sesuai dengan minat mereka. Platform ini juga menyediakan fitur kategorisasi kampanye, sistem fase penggalangan dana, dan mekanisme penarikan dana yang transparan.
+<br> <br>
+Untuk menjamin keamanan dan kepercayaan, sistem ini mengimplementasikan proses verifikasi penggalang dana dan kampanye oleh tim admin. Selain itu, terdapat fitur pelaporan donasi dan penggunaan dana yang transparan untuk meningkatkan akuntabilitas.
+<br> <br>
+Platform ini membutuhkan sebuah aplikasi web yang dapat mengelola seluruh aspek proses penggalangan dana, mulai dari pendaftaran pengguna, pembuatan kampanye, proses donasi, hingga penarikan dan distribusi dana. Aplikasi harus dapat memfasilitasi interaksi antara penggalang dana, donatur, dan administrator sistem.
+<br> <br>
+Untuk menggunakan platform, pengguna diwajibkan untuk mendaftar dan memverifikasi akun mereka. Penggalang dana harus melalui proses verifikasi tambahan sebelum dapat membuat kampanye. Setiap kampanye yang dibuat harus disetujui oleh admin sebelum dipublikasikan.
+<br> <br>
+Sistem ini akan dikembangkan menggunakan framework Laravel, memanfaatkan Blade templating untuk interaktivitas, dan menggunakan Spatie Permission untuk manajemen peran dan izin pengguna. Tujuannya adalah menciptakan platform penggalangan dana yang aman, efisien, dan mudah digunakan bagi semua pihak yang terlibat.
 
 ## Fitur Utama
 
