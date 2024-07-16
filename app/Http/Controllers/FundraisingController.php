@@ -52,7 +52,6 @@ class FundraisingController extends Controller
                 'is_active' => true,
             ]);
         });
-        
         return redirect()->route('admin.fundraisings.index');
     }
 
