@@ -26,6 +26,7 @@ class StoreFundraisingWithdrawalRequest extends FormRequest
             'bank_name' => ['required', 'string', 'max:255'],
             'bank_account_name' => ['required', 'string', 'max:255'],
             'bank_account_number' => ['required', 'string', 'max:255'],
+            'fundraising_id' => 'required|exists:fundraisings,id',
         ];
     }
 }

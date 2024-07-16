@@ -11,7 +11,7 @@
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-10 flex flex-col gap-y-5">
 
-                @if($fundraising->is_active)
+                @if ($fundraising->is_active)
                     <span class="text-white font-bold bg-green-500 rounded-2xl w-fit p-5">
                         Fundraising telah aktif dan dapat menerima donasi.
                     </span>
@@ -22,7 +22,8 @@
                         </span>
 
                         @role('owner')
-                            <form action="{{route('admin.fundraising_withdrawals.activate_fundraising', $fundraising)}}" method="POST">
+                            <form action="{{ route('admin.fundraising_withdrawals.activate_fundraising', $fundraising) }}"
+                                method="POST">
                                 @csrf
                                 <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                                     Approve Now
@@ -79,12 +80,14 @@
                 </div>
 
                 @if ($goalReached)
+                @if (!$hasRequestedWithdrawal)
                     <hr class="my-5">
                     <h3 class="text-indigo-950 text-2xl font-bold">Withdraw Donations</h3>
 
-                    <form method="POST" action="#" enctype="multipart/form-data">
+                    <form action="{{ route('admin.fundraising_withdrawals.store', $fundraising) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
-
+                        <input type="hidden" name="fundraising_id" value="{{ $fundraising->id }}">
                         <div>
                             <x-input-label for="bank_name" :value="__('bank_name')" />
                             <x-text-input id="bank_name" class="block mt-1 w-full" type="text" name="bank_name"
@@ -115,6 +118,7 @@
                             </button>
                         </div>
                     </form>
+                    @endif
                 @endif
 
                 <hr class="my-5">

@@ -10,17 +10,30 @@ class FundraisingWithdrawal extends Model
 {
     use HasFactory, SoftDeletes;
 
+    // protected $fillable = [
+    //     'fundraising_id',
+    //     'fundraiser_id',
+    //     'has_received',
+    //     'has_sent',
+    //     'amount_requested',
+    //     'proof',
+    //     'amount_received',
+    //     'bank_account_name',
+    //     'bank_name',
+    //     'bank_account_member',
+    // ];
+
     protected $fillable = [
-        'fundraising_id',
-        'fundraised_id',
+        'bank_name',
+        'bank_account_name',
+        'bank_account_number',
         'has_received',
         'has_sent',
         'amount_requested',
-        'proof',
         'amount_received',
-        'bank_account_name',
-        'bank_name',
-        'bank_account_member',
+        'proof',
+        'fundraising_id',
+        'fundraiser_id'
     ];
 
     public function fundraising()
