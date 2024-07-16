@@ -39,9 +39,9 @@ Route::middleware('auth')->group(function () {
 
 
 
+        // Route::post('/fundraising_phases/update/{fundraising}', [FundraisingPhaseController::class, 'store'])->middleware('role:fundraiser')->name('fundraising_phases.store');
         Route::resource('fundraising_phases', FundraisingPhaseController::class)->middleware('role:owner|fundraiser');
 
-        // Route::post('/fundraising_phases/update/{fundraising}', [FundraisingPhaseController::class, 'store'])->middleware('role:fundraiser')->name('fundraising_phases.store');
 
         Route::resource('fundraisings', FundraisingController::class)->middleware('role:owner|fundraiser');
 
