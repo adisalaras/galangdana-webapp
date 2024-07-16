@@ -120,3 +120,11 @@ Struktur database ini dirancang untuk mendukung semua fitur utama sistem, termas
 ## Kontribusi
 
 Kami menyambut kontribusi dari komunitas. Silakan buat pull request atau laporkan issues jika Anda menemukan bug atau memiliki saran perbaikan.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+
+## Kontak
+
+Untuk pertanyaan atau informasi lebih lanjut, silakan hubungi [adrianramadhan881@gmail.com](mailto:adrianramadhan881@gmail.com).
