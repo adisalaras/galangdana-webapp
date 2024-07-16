@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1611174797136-5e167ea90d6c?q=80&w=3120&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        <img src="{{ Storage::url($fundraisingWithdrawal->fundraising->thumbnail) }}"
                             alt="" class="rounded-2xl object-cover w-[300px] h-[200px] mb-3">
                         <h3 class="text-indigo-950 text-xl font-bold">{{ $fundraisingWithdrawal->fundraising->name }}
                         </h3>
