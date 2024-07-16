@@ -1,4 +1,4 @@
-Sistem Informasi Galang Dana
+# Sistem Informasi Galangdana berbasis Web menggunakan Framework Laravel 11
 
 Sistem Informasi Galang Dana adalah platform penggalangan dana online berbasis web yang dibangun menggunakan Laravel framework. Proyek ini bertujuan untuk memfasilitasi proses penggalangan dana secara efisien dan transparan.
 
