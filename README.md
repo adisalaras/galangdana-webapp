@@ -170,36 +170,45 @@ Struktur database ini dirancang untuk mendukung semua fitur utama sistem, termas
  ```
  git clone https://github.com/adrianramadhan/galangdana-webapp.git
  ```
-3. Masuk ke direktori proyek
+2. Masuk ke direktori proyek
  ```
  cd galangdana-webapp
  ```
-5. Instal dependensi PHP
+3. Instal dependensi PHP
  ```
  composer install
  ```
-7. Instal dependensi JavaScript
+4. Instal dependensi JavaScript
  ```
  npm install
  ```
-9. Salin file .env.example menjadi .env dan sesuaikan konfigurasi database
-10. Generate app key
+5. Salin file .env.example menjadi .env dan sesuaikan konfigurasi database
+6. Generate app key
  ```
  php artisan key:generate
  ```
-12. Jalankan migrasi database
+7. Jalankan migrasi database
  ```
  php artisan migrate
  ```
-14. Compile asset
+8. Compile asset
  ```
  npm run dev
  ```
-16. Jalankan server development
+9. Jalankan server development
  ```
  php artisan serve
  ```
-
+10. Jalankan seeder
+ ```
+ php artisan db:seed
+ ```
+11. Role Admin/Owner
+    - Email : adrian@owner.com
+    - pass  : password
+12. Role Fundraiser
+    - Email : adrian@fundraiser.com
+    - pass  : password
 ## Kontribusi
 
 Kami menyambut kontribusi dari komunitas. Silakan buat pull request atau laporkan issues jika Anda menemukan bug atau memiliki saran perbaikan.
