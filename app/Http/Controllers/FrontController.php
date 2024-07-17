@@ -20,14 +20,15 @@ class FrontController extends Controller
         return view('front.views.index', compact('fundraisings', 'categories'));
     }
 
-    public function category()
+    public function category(Category $category)
     {
-        return view('front.views.category');
+        return view('front.views.category', compact('category'));
     }
 
-    public function details()
+    public function details(Fundraising $fundraising)
     {
-        return view('front.views.details');
+        $goalReached = $fundraising->totalReachedAmount() >= $fundraising->target_amount;
+        return view('front.views.details', compact('fundraising'));
     }
 
     public function support()
