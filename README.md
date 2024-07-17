@@ -12,6 +12,89 @@ Untuk menggunakan platform, pengguna diwajibkan untuk mendaftar dan memverifikas
 <br> <br>
 Sistem ini akan dikembangkan menggunakan framework Laravel, memanfaatkan Blade templating untuk interaktivitas, dan menggunakan Spatie Permission untuk manajemen peran dan izin pengguna. Tujuannya adalah menciptakan platform penggalangan dana yang aman, efisien, dan mudah digunakan bagi semua pihak yang terlibat.
 
+## Alur Penggunaan Aplikasi
+
+1. Pendaftaran dan Autentikasi Pengguna
+   - Pengguna mendaftar sebagai fundraiser atau donatur
+   - Verifikasi email
+   - Login ke sistem
+
+2. Penggalang Dana (Fundraiser)
+   a. Verifikasi Akun Fundraiser
+      - Mengisi formulir verifikasi
+      - Menunggu persetujuan admin
+   b. Membuat Kampanye
+      - Mengisi detail kampanye (judul, deskripsi, target dana, dll.)
+      - Menentukan kategori kampanye
+      - Mengatur fase-fase kampanye (opsional)
+      - Mengunggah gambar atau dokumen pendukung
+   c. Mengelola Kampanye
+      - Memantau progres donasi
+      - Memperbarui informasi kampanye
+      - Berinteraksi dengan donatur melalui update kampanye
+   d. Penarikan Dana
+      - Mengajukan permintaan penarikan dana
+      - Menunggu verifikasi dan persetujuan admin
+      - Menerima dana yang telah diverifikasi
+
+3. Donatur
+   a. Menjelajahi Kampanye
+      - Mencari kampanye berdasarkan kategori atau kata kunci
+      - Melihat detail kampanye
+   b. Melakukan Donasi
+      - Memilih jumlah donasi
+      - Memilih metode pembayaran
+      - Melakukan pembayaran
+      - Menerima konfirmasi donasi
+   c. Memantau Donasi
+      - Melihat riwayat donasi
+      - Menerima update kampanye yang didukung
+
+4. Administrator
+   a. Verifikasi Pengguna
+      - Memeriksa dan menyetujui akun fundraiser
+   b. Manajemen Kampanye
+      - Mereview dan menyetujui kampanye baru
+      - Memantau aktivitas kampanye
+   c. Verifikasi Penarikan Dana
+      - Mereview permintaan penarikan dana
+      - Memproses dan menyetujui penarikan yang valid
+   d. Pengelolaan Sistem
+      - Mengelola kategori kampanye
+      - Memantau aktivitas platform secara keseluruhan
+      - Menangani laporan atau masalah yang muncul
+
+5. Penutupan Kampanye
+   - Kampanye ditutup otomatis saat target tercapai atau batas waktu berakhir
+   - Fundraiser membuat laporan akhir penggunaan dana
+   - Admin melakukan review final
+
+6. Evaluasi dan Pelaporan
+   - Sistem menghasilkan laporan statistik kampanye
+   - Fundraiser dan admin dapat mengakses data untuk evaluasi
+  
+## Flowchart Sistem
+
+```mermaid
+graph TD
+    A[Mulai] --> B{Daftar/Login}
+    B -->|Fundraiser| C[Verifikasi Akun]
+    C --> D[Buat Kampanye]
+    D --> E[Mengelola Kampanye]
+    E --> F[Ajukan Penarikan Dana]
+    F --> G[Terima Dana]
+    B -->|Donatur| H[Cari Kampanye]
+    H --> I[Pilih Kampanye]
+    I --> J[Lakukan Donasi]
+    J --> K[Pantau Donasi]
+    B -->|Admin| L[Verifikasi Pengguna & Kampanye]
+    L --> M[Kelola Sistem]
+    M --> N[Verifikasi Penarikan Dana]
+    G --> O[Akhir]
+    K --> O
+    N --> O
+```
+
 ## Fitur Utama
 
 - Manajemen pengguna (pendaftaran, login, profil)
